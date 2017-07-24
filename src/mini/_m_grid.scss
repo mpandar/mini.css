@@ -22,6 +22,10 @@ $grid-medium-breakpoint:       768px !default;        // Medium screen breakpoin
 $grid-medium-prefix:           'md' !default;         // Medium screen class prefix for grid.
 $grid-large-breakpoint:        1280px !default;       // Large screen breakpoint for grid.
 $grid-large-prefix:            'lg' !default;         // Large screen class prefix for grid.
+* {
+  box-sizing: border-box;
+  flex-flow: row nowrap;
+}
 // Fluid grid system container definition.
 .#{$grid-container-name} {
   margin: 0 auto;
@@ -29,14 +33,11 @@ $grid-large-prefix:            'lg' !default;         // Large screen class pref
 }
 // Grid row definition.
 .#{$grid-row-name} {
-  box-sizing: border-box;
   // New syntax
   display:   -webkit-flex;
   display:          flex;
   -webkit-flex: 0 1 auto;
           flex: 0 1 auto;
-  -webkit-flex-flow: row wrap;
-          flex-flow: row wrap;
 }
 // Legacy grid system definitions.
 @if $use-four-step-grid {
