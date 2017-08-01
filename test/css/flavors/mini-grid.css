@@ -548,5 +548,10 @@ figcaption {
   .col-lg-last {
     -webkit-order: 999;
     order: 999; } }
+.banner {
+  background: #222;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center; }
 
 /*# sourceMappingURL=mini-grid.css.map */
