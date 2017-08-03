@@ -1,0 +1,48 @@
+.sidebar-footer {
+  background: #fff;
+  margin-top: 0.8rem;
+  .row{
+    justify-content: center;
+  }
+  .photo{
+    padding: 1.5rem 0 0.5rem 0;
+  }
+  .username{
+    font-weight: 500;
+  }
+  img{
+    flex-basis: 1;
+    width: 50%;
+    border: 1px solid #eee;
+  }
+  .summary,.link {
+    text-align: center;
+    padding: 2rem 1.5rem 1rem;
+  }
+  .link {
+    text-align: left;
+    padding-top: 1rem;
+    .col-sm-6{
+      font-size: 0.8rem;
+    }
+    
+  }
+  .summary {
+    .col-sm-4{
+      padding: 0;
+      border-right:#eee solid 1px;
+      &:last-child{
+        border-right: none;
+      }
+    }
+
+    .num{
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .title{
+      font-size: 0.8rem;
+      color:#999;
+    }
+  }
+}

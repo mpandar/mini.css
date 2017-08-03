@@ -1,0 +1,21 @@
+nav {
+  background: #fff;
+  ul{
+    width: 100%;
+    li{
+      list-style: none;
+      font-size: $h6-font-size;
+      color: $fore-color;
+      line-height: $nav-line-height;
+      padding-left: $list-li-left-padding;
+      cursor: pointer;
+      &:hover {
+        color:$header-link-hover-color;
+        background: $back-color;
+      }
+      i{
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
