@@ -24,6 +24,11 @@
     padding-top: 1rem;
     .col-sm-6{
       font-size: 0.8rem;
+      line-height: 1.8rem;
+      &:hover{
+        background: #eee;
+        cursor: pointer;
+      }
     }
     
   }

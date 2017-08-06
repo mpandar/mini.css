@@ -110,6 +110,9 @@ $grid-large-prefix:            'lg' !default;         // Large screen class pref
   -webkit-order: 999;
           order: 999;
 }
+.main_wrap{
+  padding:0;
+}
 // The rest is mixed definitions.
 // Medium screen breakpoint.
 @media screen and (min-width: #{$grid-medium-breakpoint}){
@@ -208,6 +211,9 @@ $grid-large-prefix:            'lg' !default;         // Large screen class pref
   .#{$grid-column-prefix}-#{$grid-medium-prefix}-#{$grid-order-last-suffix} {
     -webkit-order: 999;
             order: 999;
+  }
+  .main_wrap{
+    padding:0 0.8rem;
   }
 }
 // Large screen breakpoint.
@@ -308,5 +314,8 @@ $grid-large-prefix:            'lg' !default;         // Large screen class pref
   .#{$grid-column-prefix}-#{$grid-large-prefix}-#{$grid-order-last-suffix} {
     -webkit-order: 999;
             order: 999;
+  }
+  .main_wrap{
+    padding:0 0.8rem;
   }
 }

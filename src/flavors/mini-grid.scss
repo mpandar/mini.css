@@ -130,7 +130,7 @@ $grid-order-normal-suffix:     'normal';          // Class name suffix for grid 
 $grid-order-first-suffix:      'first';           // Class name suffix for grid columns with highest priority
 $grid-order-last-suffix:       'last';            // Class name suffix for grid columns with lowest priorty
 $grid-column-count:            12;                // Number of columns in the grid (integer value only)
-$grid-column-padding:          0 0.25rem;         // Padding for the columns of the grid
+$grid-column-padding:          0 0rem;         // Padding for the columns of the grid
 $grid-small-prefix:            'sm';              // Small screen class prefix for grid
 $grid-medium-breakpoint:        768px;            // Medium screen breakpoint for grid
 $grid-medium-prefix:           'md';              // Medium screen class prefix for grid
@@ -553,3 +553,5 @@ $include-center-block-name:   false;               // Should center block be inc
 @import '../mini/component/banner';
 @import '../mini/component/nav';
 @import '../mini/component/sidebar-footer';
+@import '../mini/component/posts';
+@import '../mini/component/content';

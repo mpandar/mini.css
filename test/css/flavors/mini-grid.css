@@ -184,7 +184,7 @@ figcaption {
 .row[class*='cols-sm-'] > * {
   -webkit-flex: 0 0 auto;
   flex: 0 0 auto;
-  padding: 0 0.25rem; }
+  padding: 0 0rem; }
 
 .col-sm,
 .row.cols-sm > * {
@@ -301,6 +301,9 @@ figcaption {
   -webkit-order: 999;
   order: 999; }
 
+.main_wrap {
+  padding: 0; }
+
 @media screen and (min-width: 768px) {
   .col-md,
   [class^='col-md-'],
@@ -308,7 +311,7 @@ figcaption {
     box-sizing: border-box;
     -webkit-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding: 0 0.25rem; }
+    padding: 0 0rem; }
 
   .col-md,
   .row.cols-md > * {
@@ -423,7 +426,10 @@ figcaption {
 
   .col-md-last {
     -webkit-order: 999;
-    order: 999; } }
+    order: 999; }
+
+  .main_wrap {
+    padding: 0 0.8rem; } }
 @media screen and (min-width: 1280px) {
   .col-lg,
   [class^='col-lg-'],
@@ -432,7 +438,7 @@ figcaption {
     box-sizing: border-box;
     -webkit-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding: 0 0.25rem; }
+    padding: 0 0rem; }
 
   .col-lg,
   .row.cols-lg > * {
@@ -547,7 +553,10 @@ figcaption {
 
   .col-lg-last {
     -webkit-order: 999;
-    order: 999; } }
+    order: 999; }
+
+  .main_wrap {
+    padding: 0 0.8rem; } }
 .banner {
   background: #222;
   color: #fff;
@@ -591,7 +600,11 @@ nav {
     text-align: left;
     padding-top: 1rem; }
     .sidebar-footer .link .col-sm-6 {
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      line-height: 1.8rem; }
+      .sidebar-footer .link .col-sm-6:hover {
+        background: #eee;
+        cursor: pointer; }
   .sidebar-footer .summary .col-sm-4 {
     padding: 0;
     border-right: #eee solid 1px; }
@@ -603,5 +616,8 @@ nav {
   .sidebar-footer .summary .title {
     font-size: 0.8rem;
     color: #999; }
+
+.content {
+  background: #fff; }
 
 /*# sourceMappingURL=mini-grid.css.map */
