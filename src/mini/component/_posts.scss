@@ -1,2 +1,24 @@
 .posts {
+  article{
+    padding: 2rem 0;
+  }
+  .title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #555;
+  }
+  .meta {
+    justify-content: center;
+    *{
+      font-size: 0.8rem;
+      color: #999;
+    }
+    .time,.category,.read{
+      margin: 0 0.2rem;
+    }
+  }
+  code,blockquote,pre {
+    white-space: normal;
+    word-break: break-word;
+  }
 }

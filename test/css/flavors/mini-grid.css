@@ -617,7 +617,25 @@ nav {
     font-size: 0.8rem;
     color: #999; }
 
+.posts article {
+  padding: 2rem 0; }
+.posts .title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #555; }
+.posts .meta {
+  justify-content: center; }
+  .posts .meta * {
+    font-size: 0.8rem;
+    color: #999; }
+  .posts .meta .time, .posts .meta .category, .posts .meta .read {
+    margin: 0 0.2rem; }
+.posts code, .posts blockquote, .posts pre {
+  white-space: normal;
+  word-break: break-word; }
+
 .content {
+  padding: 2rem;
   background: #fff; }
 
 /*# sourceMappingURL=mini-grid.css.map */

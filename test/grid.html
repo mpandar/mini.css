@@ -70,14 +70,14 @@
                     <section class=" col-sm-12 posts">
                         <article class="col-sm-12">
                             <div class="row">
-                                <h1 class="col-sm-12">
+                                <h1 class="col-sm-12 title">
                                     ELECTRON下搭建VUE+ES6基础开发环境
                                 </h1>
-                                <div class="row col-sm-12">
+                                <div class="row col-sm-12 meta">
                                     <div class="row col-sm-8">
-                                        <div class="col-sm-4">发表于 2016-03-22</div>
-                                        <div class="col-sm-4">分类于 技术水波文</div>
-                                        <div class="col-sm-4">阅读次数 28915</div>
+                                        <div class="time">发表于：2016-03-22</div>
+                                        <div class="category">分类于<a href="#">React</a></div>
+                                        <div class="read">阅读次数：28915</div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -90,22 +90,131 @@
                         </article>
                         <article class="col-sm-12">
                             <div class="row">
-                                <div class="row col-sm-12">
-                                    ELECTRON下搭建VUE+ES6基础开发环境
-                                </div>
-                                <div class="row col-sm-12">
+                                <h1 class="title">
+                                    <a href="https://www.j2do.com/blog/post/Electron%E4%B8%8B%E6%90%AD%E5%BB%BAvue+es6%E5%9F%BA%E7%A1%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">Electron下搭建vue+es6基础开发环境</a>
+                                </h1>
+                                <div class="row col-sm-12 meta">
                                     <div class="row col-sm-8">
-                                        <div class="col-sm-4">发表于 2016-03-22</div>
-                                        <div class="col-sm-4">分类于 技术水波文</div>
-                                        <div class="col-sm-4">阅读次数 28915</div>
+                                        <div class="time">发表于：2016-03-22</div>
+                                        <div class="category">分类于<a href="#">React</a></div>
+                                        <div class="read">阅读次数：28915</div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <p>在一开始的时候webpack配置中我们就加入了es2015的支持，就是下面的配置，但之前的学习笔记都使用的es5完成，所以专门作一篇笔记，记录使用es6完成CommentBox</p>
-                                    <pre>
-                            
-                        </pre>
-                                </div>
+                                <p class="postSubtitle">
+                                </p>
+                                <h2>1. clone electron-quick-start，安装基础环境</h2>
+                                <pre>
+                                    <code>git clone https://github.com/electron/electron-quick-start.git electron-start
+cd electron-start
+npm install</code></pre>
+                                <blockquote>
+                                    <p>对于国内npm很慢的问题，可以直接使用<a href="http://npm.taobao.org/">淘宝镜像</a></p>
+                                </blockquote>
+                                <h2>2. 运行测试</h2>
+                                <pre><code>npm start</code></pre>
+                                <p><img src="http://oorl27uqw.bkt.clouddn.com/4c11271dcd48efc28c202181bac05792.jpg?imageView2/0/w/600/"
+                                        alt="经典HelloWorld"></p>
+                                <h2>3.安装相关组件</h2>
+                                <pre><code>npm install -save-dev webpack@2
+npm install --save-dev vue vue-template-compiler vue-loader css-loader babel babel-core babel-preset-es2015 babel-loader babel-preset-stage-0 </code></pre>
+                                <h2>4. 创建相关目录</h2>
+                                <pre><code>---dist
+---build
+---src
+  |--main
+  |--renderer</code></pre>
+                                <pre><code>mv main.js src/main
+mv renderer.js src/renderer
+mv index.html build/</code></pre>
+                                <h2>5. 创建webpack.config.js配置文件</h2>
+                                <pre><code>var path = require('path');
+module.exports = {
+    entry: {
+        main:'./src/main/main.js',
+        renderer:'./src/renderer/renderer.js',
+    },
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: '[name].js'
+    },
+    target: 'electron',
+    context: __dirname,
+    node: {
+        __filename: false,
+        __dirname: false
+    },
+    module: {
+        loaders: [{
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
+            query: {
+                presets: ['es2015']
+            }
+        }]
+    },
+    devServer: {
+        contentBase: './build'
+    }
+};</code></pre>
+                                <blockquote>
+                                    <p>如果不添加 <code>target: 'electron'</code>配置，你会遇到如下错误 Module not found: Error: Can't resolve
+                                        'fs' in '/Users/*/App/nwjs/electron-start/node_modules/electron</p>
+                                    <p>另外<code>context: __dirname, node: { __filename: false, __dirname: false },</code>，此配置是保证main.js中<code>__dirname</code>的值会变成"/"，导致main.js中的<code>path.join(__dirname, 'index.html')</code>无法正确找到文件</p>
+                                </blockquote>
+                                <h2>6. 修改package.json中main入口js文件为build下main.js</h2>
+                                <pre><code>  "main": "build/main.js",</code></pre>
+                                <h2>7. 编译文件，生成build下main.js和renderer.js文件</h2>
+                                <pre><code>  //package.json中添加build命令，调用webpack编译文件
+  "scripts": {
+    "start": "electron .",
+    "build": "webpack"
+  },</code></pre>
+                                <pre><code>    npm run build</code></pre>
+                                <h2>8. 再次运行npm start，能够正常启动electron</h2>
+                                <h2>9. 利用webpack-dev-server开启renderer自动监控编译</h2>
+                                <pre><code>  "scripts": {
+    "start": "electron .",
+    "build": "webpack",
+    "build-dev": "webpack-dev-server"
+  },</code></pre>
+                                <pre><code>    //修改main.js，从http服务中获取文件
+        mainWindow.loadURL("http://localhost:8080/index.html")
+    //修改index.html
+    &lt;script src="http://localhost:8080/renderer.js"&gt;&lt;/script&gt;</code></pre>
+                                <pre><code>    npm run build-dev
+    //之后即可编辑文件后保存，自动编译文件，在electron中按Command+R快速刷新（这里应该是有个bug，我还没搞懂，正常在浏览器会自动刷新）</code></pre>
+                                <h2>10. 有待完成</h2>
+                                <blockquote>
+                                    <p>main.js也可以自动刷新，后续学习</p>
+                                </blockquote>
+                                <h2>11. 编写vue版hello world</h2>
+                                <pre><code>//修正index.html
+  &lt;div id='version'&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;!-- All of the Node.js APIs are available in this renderer process. --&gt;
+    We are using Node.js &lt;span&gt;&lt;/span&gt; , Chromium
+    &lt;span&gt;&lt;/span&gt; , and Electron
+    &lt;span&gt;&lt;/span&gt; .
+  &lt;/div&gt;</code></pre>
+                                <pre><code>import Vue from 'vue'
+var app = new Vue({
+  el: '#version',
+  data: {
+    node_version: process.versions.node,
+    chrome_version: process.versions.chrome,
+    electron_version: process.versions.electron,  
+  }
+})</code></pre>
+                                <blockquote>
+                                    <p>刷新浏览器，会收到如下错误<code>[Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build. (found in &lt;Root&gt;)</code>查资料，得到如下解决方案，在webpack.config.js添加如下别名</p>
+                                </blockquote>
+                                <pre><code>resolve: {
+    alias: {
+         vue: 'vue/dist/vue.js'
+    }
+ }</code></pre>
+                                <p>重启npm run build-dev</p>
+                                <p></p>
                             </div>
                         </article>
                     </section>
