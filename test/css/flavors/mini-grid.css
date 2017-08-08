@@ -633,6 +633,8 @@ nav {
 .posts code, .posts blockquote, .posts pre {
   white-space: normal;
   word-break: break-word; }
+  .posts code *, .posts blockquote *, .posts pre * {
+    font-size: 0.8rem; }
 
 .content {
   padding: 2rem;

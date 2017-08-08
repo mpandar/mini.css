@@ -8,6 +8,7 @@
     <title>Grid</title>
     <link rel="stylesheet" href="css/flavors/mini-grid.css">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/highlight.js/9.12.0/styles/dracula.min.css" rel="stylesheet">
 </head>
 
 <body class="container">
@@ -104,7 +105,7 @@
                                 </p>
                                 <h2>1. clone electron-quick-start，安装基础环境</h2>
                                 <pre>
-                                    <code>git clone https://github.com/electron/electron-quick-start.git electron-start
+                                    <code class='shell'>git clone https://github.com/electron/electron-quick-start.git electron-start
 cd electron-start
 npm install</code></pre>
                                 <blockquote>
@@ -127,7 +128,8 @@ npm install --save-dev vue vue-template-compiler vue-loader css-loader babel bab
 mv renderer.js src/renderer
 mv index.html build/</code></pre>
                                 <h2>5. 创建webpack.config.js配置文件</h2>
-                                <pre><code>var path = require('path');
+                                <pre><code class='c'>var path = require('path');
+                                    <br>
 module.exports = {
     entry: {
         main:'./src/main/main.js',
@@ -188,7 +190,7 @@ module.exports = {
                                     <p>main.js也可以自动刷新，后续学习</p>
                                 </blockquote>
                                 <h2>11. 编写vue版hello world</h2>
-                                <pre><code>//修正index.html
+                                <pre><code  class="language-js">//修正index.html
   &lt;div id='version'&gt;
     &lt;h1&gt;Hello World!&lt;/h1&gt;
     &lt;!-- All of the Node.js APIs are available in this renderer process. --&gt;
@@ -224,6 +226,10 @@ var app = new Vue({
         </div>
 
     </div>
+    <script src="http://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </body>
 
 </html>
